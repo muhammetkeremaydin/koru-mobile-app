@@ -1,0 +1,85 @@
+digraph userflow {
+  graph [rankdir=TB, bgcolor="#f9f7f0", fontname="Bricolage Grotesque", nodesep=0.35, ranksep=0.42, pad=0.3,
+         label=<<FONT POINT-SIZE="20"><B>Koru: Main User Flow</B></FONT><BR/><FONT POINT-SIZE="11" COLOR="#617083">MTM4681 Milestone 1 · rectangles = screens · diamonds = decisions · pills = system actions · dashed = admin-only</FONT>>,
+         labelloc=t, labeljust=l];
+  node [fontname="Literata", fontsize=11, color="#172d45", fontcolor="#172d45", penwidth=1.4];
+  edge [fontname="Literata", fontsize=9.5, color="#1f5874", fontcolor="#617083", arrowsize=0.7, penwidth=1.2];
+
+  start  [shape=circle, label="", width=0.25, style=filled, fillcolor="#172d45"];
+  launch [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="App launch\n(Firebase Auth restores session)"];
+  dSess  [shape=diamond, style=filled, fillcolor="#ffe16b", label="Valid\nsession?"];
+  login  [shape=box, style=filled, fillcolor="#fffdf7", label="01 · Giriş\n(e-mail + password)"];
+  apiLogin [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="Firebase Auth\nsignInWithEmailAndPassword"];
+  dOk    [shape=diamond, style=filled, fillcolor="#ffe16b", label="Credentials\nOK?"];
+  err    [shape=box, style="rounded,filled", fillcolor="#fde3df", label="Inline error\n(wrong password / too many tries)"];
+  dGroups[shape=diamond, style=filled, fillcolor="#ffe16b", label="More than\none group?"];
+  group  [shape=box, style=filled, fillcolor="#fffdf7", label="02 · Grup seçimi"];
+  load   [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="Listen to group data\n(Firestore streams + offline cache)"];
+  home   [shape=box, style=filled, fillcolor="#fffdf7", penwidth=2.4, label="03 · Ana sayfa\nnext / this-week meeting"];
+
+  subgraph cluster_tabs {
+    label="Bottom navigation (ShellRoute: tabs keep their own stack)"; fontname="Bricolage Grotesque"; fontsize=11;
+    style="dashed"; color="#b9c7d4"; fontcolor="#617083";
+    archive [shape=box, style=filled, fillcolor="#fffdf7", label="04 · Buluşmalar\nsearch + filter"];
+    plan    [shape=box, style=filled, fillcolor="#fffdf7", label="07 · Plan\nroadmap + voting"];
+    profile [shape=box, style=filled, fillcolor="#fffdf7", label="09 · Profil\nstats · favorites · theme"];
+  }
+
+  meeting [shape=box, style=filled, fillcolor="#fffdf7", penwidth=2.4, label="05 · Buluşma detayı"];
+  dFuture [shape=diamond, style=filled, fillcolor="#ffe16b", label="Meeting today\nor upcoming?"];
+  rsvp    [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="Toggle “Geliyorum”\nset / delete rsvps/{uid}"];
+  review  [shape=box, style=filled, fillcolor="#fffdf7", label="06 · Değerlendirme\n(bottom sheet)"];
+  dStatus [shape=diamond, style=filled, fillcolor="#ffe16b", label="Read or\npartial?"];
+  needRate[shape=box, style="rounded,filled", fillcolor="#fde3df", label="Rating 1–10\nrequired"];
+  save    [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="write reviews/{uid}\n→ live update"];
+  share   [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="Share link · ICS · Maps\n(OS share sheet)"];
+
+  dVote   [shape=diamond, style=filled, fillcolor="#ffe16b", label="Already voted\nfor this book?"];
+  vote    [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="set votes/{uid} = planId\n(one vote per member)"];
+  unvote  [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="delete votes/{uid}"];
+  addbook [shape=box, style=filled, fillcolor="#fffdf7", label="08 · Kitap öner\nOpen Library search"];
+  dFound  [shape=diamond, style=filled, fillcolor="#ffe16b", label="Book\nfound?"];
+  manual  [shape=box, style=filled, fillcolor="#fffdf7", label="Manual entry form"];
+  createPlan [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="add plans/{id}"];
+  dAdmin  [shape=diamond, style="filled,dashed", fillcolor="#ffe16b", label="Admin?"];
+  toMeeting [shape=box, style="rounded,filled,dashed", fillcolor="#eef1ec", label="Move plan → meeting\n(batch write)"];
+
+  logout  [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="Logout\n(Firebase signOut)"];
+
+  start -> launch -> dSess;
+  dSess -> login [label="no"];
+  dSess -> load  [label="yes"];
+  login -> apiLogin -> dOk;
+  dOk -> err [label="no"]; err -> login;
+  dOk -> dGroups [label="yes"];
+  dGroups -> group [label="yes"]; group -> load;
+  dGroups -> load [label="no"];
+  load -> home;
+
+  home -> meeting [label="tap featured card"];
+  home -> archive; home -> plan; home -> profile;
+  archive -> meeting [label="tap row"];
+
+  meeting -> dFuture;
+  dFuture -> rsvp [label="yes"];
+  dFuture -> review [label="no / any time"];
+  meeting -> share [style=dotted];
+  review -> dStatus;
+  dStatus -> needRate [label="yes, no rating"]; needRate -> review;
+  dStatus -> save [label="rated / unread"];
+  save -> meeting [label="pop sheet"];
+  rsvp -> meeting;
+
+  plan -> dVote [label="tap vote"];
+  dVote -> unvote [label="yes"]; dVote -> vote [label="no"];
+  plan -> addbook [label="Kitap öner"];
+  addbook -> dFound;
+  dFound -> createPlan [label="yes, select"];
+  dFound -> manual [label="no"]; manual -> createPlan;
+  createPlan -> plan;
+  plan -> dAdmin [style=dashed];
+  dAdmin -> toMeeting [label="yes", style=dashed];
+  toMeeting -> meeting [style=dashed];
+
+  profile -> logout; logout -> login [style=dotted];
+}
