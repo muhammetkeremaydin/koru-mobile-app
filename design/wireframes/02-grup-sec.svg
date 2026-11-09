@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+<title>Grup seçimi (Group select) (wire)</title>
+<rect x="0" y="0" width="390" height="844" rx="0" fill="#ffffff"/>
+<text x="28" y="30" font-family="Inter" font-size="15" font-weight="700" fill="#2b2b2b" text-anchor="start">9:41</text>
+<rect x="330" y="19" width="26" height="12" rx="3" fill="none" stroke="#2b2b2b" stroke-width="1"/>
+<rect x="332" y="21" width="18" height="8" rx="1.5" fill="#2b2b2b"/>
+<rect x="296" y="27" width="3" height="4" rx="1" fill="#2b2b2b"/>
+<rect x="301" y="25" width="3" height="6" rx="1" fill="#2b2b2b"/>
+<rect x="306" y="23" width="3" height="8" rx="1" fill="#2b2b2b"/>
+<rect x="311" y="21" width="3" height="10" rx="1" fill="#2b2b2b"/>
+<text x="20" y="76" font-family="Inter" font-size="15" font-weight="400" fill="#6b6b6b" text-anchor="start">Merhaba Efe</text>
+<rect x="20" y="116" width="86.72" height="26" rx="2" fill="#d9d9d9"/>
+<text x="28" y="134" font-family="Inter" font-size="13" font-weight="700" fill="#2b2b2b" text-anchor="start" letter-spacing="0.4">GRUP SEÇ</text>
+<text x="20" y="186.0" font-family="Inter" font-size="34" font-weight="700" fill="#2b2b2b" text-anchor="start">Hangi gruba</text>
+<text x="20" y="224.08" font-family="Inter" font-size="34" font-weight="700" fill="#2b2b2b" text-anchor="start">giriyorsun?</text>
+<text x="20" y="250" font-family="Inter" font-size="14" font-weight="400" fill="#6b6b6b" text-anchor="start">Birden fazla okuma grubuna üyesin.</text>
+<rect x="20" y="290" width="340" height="84" rx="4" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+<rect x="36" y="312" width="40" height="40" rx="4" fill="#d9d9d9" stroke="#2b2b2b" stroke-width="1.5"/>
+<g transform="translate(44.0,320.0) scale(1.0000)"><path d="M3 5.5C5.5 4.5 8.5 4.5 12 6.5c3.5-2 6.5-2 9-1v13c-2.5-1-5.5-1-9 1-3.5-2-6.5-2-9-1z M12 6.5v13" fill="none" stroke="#2b2b2b" stroke-width="1.80" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="92" y="328" font-family="Inter" font-size="17" font-weight="700" fill="#2b2b2b" text-anchor="start">Moda Okurları</text>
+<text x="92" y="350" font-family="Inter" font-size="13" font-weight="400" fill="#6b6b6b" text-anchor="start">6 üye · Yönetici</text>
+<g transform="translate(326,321) scale(0.8333)"><path d="M9 5l7 7-7 7" fill="none" stroke="#6b6b6b" stroke-width="1.92" stroke-linecap="round" stroke-linejoin="round"/></g>
+<rect x="20" y="394" width="340" height="84" rx="4" fill="#ffffff" stroke="#bdbdbd" stroke-width="1"/>
+<rect x="36" y="416" width="40" height="40" rx="4" fill="#d9d9d9" stroke="#2b2b2b" stroke-width="1.5"/>
+<g transform="translate(44.0,424.0) scale(1.0000)"><path d="M3 5.5C5.5 4.5 8.5 4.5 12 6.5c3.5-2 6.5-2 9-1v13c-2.5-1-5.5-1-9 1-3.5-2-6.5-2-9-1z M12 6.5v13" fill="none" stroke="#2b2b2b" stroke-width="1.80" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="92" y="432" font-family="Inter" font-size="17" font-weight="700" fill="#2b2b2b" text-anchor="start">YTÜ Kitap Kulübü</text>
+<text x="92" y="454" font-family="Inter" font-size="13" font-weight="400" fill="#6b6b6b" text-anchor="start">11 üye · Üye</text>
+<g transform="translate(326,425) scale(0.8333)"><path d="M9 5l7 7-7 7" fill="none" stroke="#6b6b6b" stroke-width="1.92" stroke-linecap="round" stroke-linejoin="round"/></g>
+<rect x="20" y="498" width="340" height="84" rx="4" fill="#ffffff" stroke="#bdbdbd" stroke-width="1"/>
+<rect x="36" y="520" width="40" height="40" rx="4" fill="#d9d9d9" stroke="#2b2b2b" stroke-width="1.5"/>
+<g transform="translate(44.0,528.0) scale(1.0000)"><path d="M3 5.5C5.5 4.5 8.5 4.5 12 6.5c3.5-2 6.5-2 9-1v13c-2.5-1-5.5-1-9 1-3.5-2-6.5-2-9-1z M12 6.5v13" fill="none" stroke="#2b2b2b" stroke-width="1.80" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="92" y="536" font-family="Inter" font-size="17" font-weight="700" fill="#2b2b2b" text-anchor="start">Pazar Kahvesi Okurları</text>
+<text x="92" y="558" font-family="Inter" font-size="13" font-weight="400" fill="#6b6b6b" text-anchor="start">8 üye · Üye</text>
+<g transform="translate(326,529) scale(0.8333)"><path d="M9 5l7 7-7 7" fill="none" stroke="#6b6b6b" stroke-width="1.92" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="20" y="632" font-family="Inter" font-size="13" font-weight="400" fill="#6b6b6b" text-anchor="start">Seçimini profilden istediğin zaman</text>
+<text x="20" y="652" font-family="Inter" font-size="13" font-weight="400" fill="#6b6b6b" text-anchor="start">değiştirebilirsin.</text>
+<rect x="128" y="830" width="134" height="5" rx="2.5" fill="#2b2b2b"/>
+</svg>
