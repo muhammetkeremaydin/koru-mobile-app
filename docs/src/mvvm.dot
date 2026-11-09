@@ -1,0 +1,18 @@
+digraph mvvm {
+  graph [rankdir=LR, bgcolor="transparent", nodesep=0.25, ranksep=0.5, fontname="Bricolage Grotesque"];
+  node [shape=box, fontname="Literata", fontsize=10, color="#172d45", fontcolor="#172d45", penwidth=1.3, style=filled, fillcolor="#fffdf7"];
+  edge [fontname="Literata", fontsize=8.5, color="#1f5874", fontcolor="#617083", arrowsize=0.6];
+  subgraph cluster_v { label="VIEW  (Widgets)"; style="filled"; fillcolor="#ffe16b"; color="#172d45"; fontsize=11;
+    v1 [label="HomeScreen"]; v2 [label="MeetingDetailScreen\n+ ReviewSheet"]; v3 [label="PlanScreen"]; v4 [label="ProfileScreen"]; }
+  subgraph cluster_vm { label="VIEWMODEL  (ChangeNotifier + Provider)"; style="filled"; fillcolor="#eef1ec"; color="#172d45"; fontsize=11;
+    m0 [label="SessionViewModel\n(auth, group, theme)"]; m1 [label="HomeViewModel"]; m2 [label="MeetingViewModel"]; m3 [label="PlanViewModel"]; m4 [label="ProfileViewModel"]; }
+  subgraph cluster_m { label="MODEL  (data layer)"; style="filled"; fillcolor="#eef1ec"; color="#172d45"; fontsize=11;
+    r1 [label="«interface»\nAuthRepository"]; r2 [label="«interface»\nClubRepository\n(meetings · plans · reviews)"]; r3 [label="«interface»\nBookSearchService"];
+    fs [label="FirestoreDataSource\n(cloud_firestore)"]; au [label="FirebaseAuth"]; ol [label="OpenLibraryClient\n(http + JSON)"]; pref [label="Preferences\n(shared_preferences)"]; ent [label="Entities\nMeeting · Book · Member …", shape=note]; }
+  fb [label="Firebase\nAuth · Cloud Firestore\n(Security Rules)", shape=cylinder, fillcolor="#122a3d", fontcolor="#f8f5e9"];
+  olapi [label="Open Library\nREST API", shape=cylinder, fillcolor="#122a3d", fontcolor="#f8f5e9"];
+  v1 -> m1 [label="watch / call"]; v2 -> m2; v3 -> m3; v4 -> m4;
+  m1 -> r2; m2 -> r2; m3 -> r2; m3 -> r3; m4 -> r1; m4 -> r2; m0 -> r1; m0 -> pref;
+  r1 -> au; r2 -> fs; r3 -> ol;
+  au -> fb [dir=both]; fs -> fb [dir=both, label="streams"]; ol -> olapi [label="HTTPS"];
+}
