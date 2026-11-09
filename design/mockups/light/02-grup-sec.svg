@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+<title>Grup seçimi (Group select) (light)</title>
+<rect x="0" y="0" width="390" height="844" rx="0" fill="#f9f7f0"/>
+<line x1="0" y1="132" x2="390" y2="132" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="164" x2="390" y2="164" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="196" x2="390" y2="196" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="228" x2="390" y2="228" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="260" x2="390" y2="260" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="292" x2="390" y2="292" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="324" x2="390" y2="324" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="356" x2="390" y2="356" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="388" x2="390" y2="388" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="420" x2="390" y2="420" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="452" x2="390" y2="452" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="484" x2="390" y2="484" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="516" x2="390" y2="516" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="548" x2="390" y2="548" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="580" x2="390" y2="580" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="612" x2="390" y2="612" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="644" x2="390" y2="644" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="676" x2="390" y2="676" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="708" x2="390" y2="708" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="740" x2="390" y2="740" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="772" x2="390" y2="772" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="804" x2="390" y2="804" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="0" y1="836" x2="390" y2="836" stroke="#e6e9e6" stroke-width="1"/>
+<line x1="10" y1="100" x2="10" y2="844" stroke="#e5a39a" stroke-width="1.5"/>
+<text x="28" y="30" font-family="Bricolage Grotesque" font-size="15" font-weight="600" fill="#172d45" text-anchor="start">9:41</text>
+<rect x="330" y="19" width="26" height="12" rx="3" fill="none" stroke="#172d45" stroke-width="1"/>
+<rect x="332" y="21" width="18" height="8" rx="1.5" fill="#172d45"/>
+<rect x="296" y="27" width="3" height="4" rx="1" fill="#172d45"/>
+<rect x="301" y="25" width="3" height="6" rx="1" fill="#172d45"/>
+<rect x="306" y="23" width="3" height="8" rx="1" fill="#172d45"/>
+<rect x="311" y="21" width="3" height="10" rx="1" fill="#172d45"/>
+<text x="20" y="76" font-family="Literata" font-size="15" font-weight="400" fill="#617083" text-anchor="start">Merhaba Efe</text>
+<rect x="20" y="116" width="86.72" height="26" rx="0" fill="#ffe16b"/>
+<text x="28" y="134" font-family="Bricolage Grotesque" font-size="13" font-weight="700" fill="#172d45" text-anchor="start" letter-spacing="0.4">GRUP SEÇ</text>
+<text x="20" y="186.0" font-family="Bricolage Grotesque" font-size="34" font-weight="700" fill="#172d45" text-anchor="start">Hangi gruba</text>
+<text x="20" y="224.08" font-family="Bricolage Grotesque" font-size="34" font-weight="700" fill="#172d45" text-anchor="start">giriyorsun?</text>
+<text x="20" y="250" font-family="Literata" font-size="14" font-weight="400" fill="#617083" text-anchor="start">Birden fazla okuma grubuna üyesin.</text>
+<rect x="25" y="295" width="340" height="84" rx="4" fill="#ffe16b"/>
+<rect x="20" y="290" width="340" height="84" rx="4" fill="#fffdf7" stroke="#172d45" stroke-width="1.5"/>
+<rect x="40" y="316" width="40" height="40" rx="4" fill="#172d45"/>
+<rect x="36" y="312" width="40" height="40" rx="4" fill="#ffe16b" stroke="#172d45" stroke-width="1.5"/>
+<g transform="translate(44.0,320.0) scale(1.0000)"><path d="M3 5.5C5.5 4.5 8.5 4.5 12 6.5c3.5-2 6.5-2 9-1v13c-2.5-1-5.5-1-9 1-3.5-2-6.5-2-9-1z M12 6.5v13" fill="none" stroke="#172d45" stroke-width="1.80" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="92" y="328" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#172d45" text-anchor="start">Moda Okurları</text>
+<text x="92" y="350" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">6 üye · Yönetici</text>
+<g transform="translate(326,321) scale(0.8333)"><path d="M9 5l7 7-7 7" fill="none" stroke="#617083" stroke-width="1.92" stroke-linecap="round" stroke-linejoin="round"/></g>
+<rect x="20" y="394" width="340" height="84" rx="4" fill="#fffdf7" stroke="#b9c7d4" stroke-width="1"/>
+<rect x="40" y="420" width="40" height="40" rx="4" fill="#172d45"/>
+<rect x="36" y="416" width="40" height="40" rx="4" fill="#ffe16b" stroke="#172d45" stroke-width="1.5"/>
+<g transform="translate(44.0,424.0) scale(1.0000)"><path d="M3 5.5C5.5 4.5 8.5 4.5 12 6.5c3.5-2 6.5-2 9-1v13c-2.5-1-5.5-1-9 1-3.5-2-6.5-2-9-1z M12 6.5v13" fill="none" stroke="#172d45" stroke-width="1.80" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="92" y="432" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#172d45" text-anchor="start">YTÜ Kitap Kulübü</text>
+<text x="92" y="454" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">11 üye · Üye</text>
+<g transform="translate(326,425) scale(0.8333)"><path d="M9 5l7 7-7 7" fill="none" stroke="#617083" stroke-width="1.92" stroke-linecap="round" stroke-linejoin="round"/></g>
+<rect x="20" y="498" width="340" height="84" rx="4" fill="#fffdf7" stroke="#b9c7d4" stroke-width="1"/>
+<rect x="40" y="524" width="40" height="40" rx="4" fill="#172d45"/>
+<rect x="36" y="520" width="40" height="40" rx="4" fill="#ffe16b" stroke="#172d45" stroke-width="1.5"/>
+<g transform="translate(44.0,528.0) scale(1.0000)"><path d="M3 5.5C5.5 4.5 8.5 4.5 12 6.5c3.5-2 6.5-2 9-1v13c-2.5-1-5.5-1-9 1-3.5-2-6.5-2-9-1z M12 6.5v13" fill="none" stroke="#172d45" stroke-width="1.80" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="92" y="536" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#172d45" text-anchor="start">Pazar Kahvesi Okurları</text>
+<text x="92" y="558" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">8 üye · Üye</text>
+<g transform="translate(326,529) scale(0.8333)"><path d="M9 5l7 7-7 7" fill="none" stroke="#617083" stroke-width="1.92" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="20" y="632" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">Seçimini profilden istediğin zaman</text>
+<text x="20" y="652" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">değiştirebilirsin.</text>
+<rect x="128" y="830" width="134" height="5" rx="2.5" fill="#172d45"/>
+</svg>
