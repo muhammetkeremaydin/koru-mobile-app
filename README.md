@@ -62,8 +62,32 @@ Flutter 3 · Dart 3 · `firebase_core` · `firebase_auth` · `cloud_firestore` �
 ## Repository layout
 
 ```
-docs/      PDFs for the milestone (+ diagram sources in docs/src)
-design/    wireframes/ and mockups/ (SVG, importable into Figma), previews/ (PNG), FIGMA.md
+docs/          PDFs for the milestone (+ diagram sources in docs/src)
+design/        wireframes/ and mockups/ (SVG, importable into Figma), previews/ (PNG), FIGMA.md
+lib/data/      models/ (plain Dart classes) and local/ (SQLite schema, DAOs, LocalStore)
+test/          unit tests; test/local runs the database against in-memory SQLite
 ```
 
-The Flutter source (`lib/`, `test/`, `pubspec.yaml`) is added from the next milestone on.
+Screens, Firebase and navigation come in the next milestone. The on-device database is already in place.
+
+## Local database (sqflite)
+
+The app keeps an offline-first copy on the phone: accounts that signed in on the device (e-mail, name, optional birth year, last login), group memberships, books and favorites, past and upcoming meetings, the member's RSVPs and reviews (drafts included) and sync times. Firestore stays the source of truth; passwords are never stored locally.
+
+| Table | Holds |
+|---|---|
+| `accounts` | one row per account used on this device, exactly one `is_current` |
+| `groups`, `group_memberships` | cached clubs and each account's role in them |
+| `books`, `favorites` | book cache (Open Library or manual) and each account's favorites |
+| `meetings` | meetings of the cached groups, used for "Önceki buluşmalar" and search |
+| `my_rsvps`, `my_reviews` | the member's own answers; reviews stay `is_draft = 1` until sent |
+| `sync_state` | last mirror time per Firestore collection |
+
+Code: `lib/data/local/schema.dart` (tables, checks, foreign keys with `ON DELETE CASCADE`), `migrations.dart` (versioned `onUpgrade`), `dao/` (one DAO per table group), `sqlite_local_store.dart` (implements `LocalStore`, multi-row writes in transactions), `demo_seed.dart` (sample data for UI work).
+
+Run the tests (no emulator needed, uses `sqflite_common_ffi`):
+
+```bash
+flutter pub get
+flutter test
+```
