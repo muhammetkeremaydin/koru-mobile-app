@@ -52,12 +52,12 @@ Team 4 · Yıldız Technical University · Fall 2026 · Repository: [muhammetker
 | Meetings, plans, reviews synced live from Cloud Firestore | Cloud data, async streams, error states |
 | RSVP, rating 1–10, voting with one active vote | MVVM + Provider (`ChangeNotifier`) |
 | Book search (Open Library) | Networking: `http` + JSON |
-| Offline mode, theme preference | Local data: Firestore cache, `shared_preferences` |
+| Offline meeting history, favorites, saved accounts, review drafts | Local DB: `sqflite` (SQLite), `shared_preferences` |
 | Bottom-sheet review, vote and RSVP transitions | Animation |
 
 ## Tech stack (planned)
 
-Flutter 3 · Dart 3 · `firebase_core` · `firebase_auth` · `cloud_firestore` · `provider` · `go_router` · `http` · `shared_preferences` · `google_fonts` · `intl` · `share_plus` · `url_launcher` · `app_links`
+Flutter 3 · Dart 3 · `firebase_core` · `firebase_auth` · `cloud_firestore` · `sqflite` · `provider` · `go_router` · `http` · `shared_preferences` · `google_fonts` · `intl` · `share_plus` · `url_launcher` · `app_links`
 
 ## Repository layout
 

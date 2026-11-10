@@ -8,11 +8,11 @@ digraph mvvm {
     m0 [label="SessionViewModel\n(auth, group, theme)"]; m1 [label="HomeViewModel"]; m2 [label="MeetingViewModel"]; m3 [label="PlanViewModel"]; m4 [label="ProfileViewModel"]; }
   subgraph cluster_m { label="MODEL  (data layer)"; style="filled"; fillcolor="#eef1ec"; color="#172d45"; fontsize=11;
     r1 [label="«interface»\nAuthRepository"]; r2 [label="«interface»\nClubRepository\n(meetings · plans · reviews)"]; r3 [label="«interface»\nBookSearchService"];
-    fs [label="FirestoreDataSource\n(cloud_firestore)"]; au [label="FirebaseAuth"]; ol [label="OpenLibraryClient\n(http + JSON)"]; pref [label="Preferences\n(shared_preferences)"]; ent [label="Entities\nMeeting · Book · Member …", shape=note]; }
+    fs [label="FirestoreDataSource\n(cloud_firestore)"]; au [label="FirebaseAuth"]; ol [label="OpenLibraryClient\n(http + JSON)"]; pref [label="Preferences\n(shared_preferences)"]; db [label="KoruDatabase · LocalStore\n(sqflite · SQLite)", fillcolor="#ffe16b"]; ent [label="Entities\nMeeting · Book · Member …", shape=note]; }
   fb [label="Firebase\nAuth · Cloud Firestore\n(Security Rules)", shape=cylinder, fillcolor="#122a3d", fontcolor="#f8f5e9"];
   olapi [label="Open Library\nREST API", shape=cylinder, fillcolor="#122a3d", fontcolor="#f8f5e9"];
   v1 -> m1 [label="watch / call"]; v2 -> m2; v3 -> m3; v4 -> m4;
   m1 -> r2; m2 -> r2; m3 -> r2; m3 -> r3; m4 -> r1; m4 -> r2; m0 -> r1; m0 -> pref;
-  r1 -> au; r2 -> fs; r3 -> ol;
+  r1 -> au; r1 -> db; r2 -> fs; r2 -> db [label="read first"]; r3 -> ol;
   au -> fb [dir=both]; fs -> fb [dir=both, label="streams"]; ol -> olapi [label="HTTPS"];
 }

@@ -6,7 +6,7 @@ digraph userflow {
   edge [fontname="Literata", fontsize=9.5, color="#1f5874", fontcolor="#617083", arrowsize=0.7, penwidth=1.2];
 
   start  [shape=circle, label="", width=0.25, style=filled, fillcolor="#172d45"];
-  launch [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="App launch\n(Firebase Auth restores session)"];
+  launch [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="App launch\n(Firebase Auth restores session,\nopen local SQLite DB)"];
   dSess  [shape=diamond, style=filled, fillcolor="#ffe16b", label="Valid\nsession?"];
   login  [shape=box, style=filled, fillcolor="#fffdf7", label="01 · Giriş\n(e-mail + password)"];
   apiLogin [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="Firebase Auth\nsignInWithEmailAndPassword"];
@@ -14,7 +14,7 @@ digraph userflow {
   err    [shape=box, style="rounded,filled", fillcolor="#fde3df", label="Inline error\n(wrong password / too many tries)"];
   dGroups[shape=diamond, style=filled, fillcolor="#ffe16b", label="More than\none group?"];
   group  [shape=box, style=filled, fillcolor="#fffdf7", label="02 · Grup seçimi"];
-  load   [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="Listen to group data\n(Firestore streams + offline cache)"];
+  load   [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="Load from local DB, then\nsync Firestore → SQLite"];
   home   [shape=box, style=filled, fillcolor="#fffdf7", penwidth=2.4, label="03 · Ana sayfa\nnext / this-week meeting"];
 
   subgraph cluster_tabs {
@@ -31,7 +31,7 @@ digraph userflow {
   review  [shape=box, style=filled, fillcolor="#fffdf7", label="06 · Değerlendirme\n(bottom sheet)"];
   dStatus [shape=diamond, style=filled, fillcolor="#ffe16b", label="Read or\npartial?"];
   needRate[shape=box, style="rounded,filled", fillcolor="#fde3df", label="Rating 1–10\nrequired"];
-  save    [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="write reviews/{uid}\n→ live update"];
+  save    [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="write reviews/{uid}\n(draft kept in SQLite if offline)"];
   share   [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="Share link · ICS · Maps\n(OS share sheet)"];
 
   dVote   [shape=diamond, style=filled, fillcolor="#ffe16b", label="Already voted\nfor this book?"];
