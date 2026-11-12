@@ -128,12 +128,14 @@ class SqliteLocalStore implements LocalStore {
   // Reviews
 
   @override
-  Future<bool> saveDraft(String uid, ReviewInput draft) =>
+  Future<bool> saveMeetingDraft(String uid, MeetingReviewInput draft) =>
       _db.transaction((txn) async {
-        final dao = ReviewDao(txn);
+        final dao = MeetingReviewDao(txn);
         final existing = await dao.get(uid, draft.meetingId);
         if (existing != null && !existing.isDraft) return false;
-        await dao.save(Review(
+        final problems = draft.problems(submitting: false);
+        if (problems.isNotEmpty) throw ArgumentError(problems.join('\n'));
+        await dao.save(MeetingReview(
           accountUid: uid,
           input: draft,
           isDraft: true,
@@ -143,20 +145,16 @@ class SqliteLocalStore implements LocalStore {
       });
 
   @override
-  Future<void> submitReview(String uid, ReviewInput review) =>
+  Future<void> submitMeetingReview(String uid, MeetingReviewInput review) =>
       _db.transaction((txn) async {
         final meeting = await MeetingDao(txn).byId(review.meetingId);
         if (meeting == null) {
           throw ArgumentError.value(
               review.meetingId, 'meetingId', 'Buluşma bulunamadı.');
         }
-        final book = await BookDao(txn).byId(meeting.bookId);
-        final problems =
-            review.problems(bookPages: book?.pages, submitting: true);
-        if (problems.isNotEmpty) {
-          throw ArgumentError(problems.join('\n'));
-        }
-        await ReviewDao(txn).save(Review(
+        final problems = review.problems(submitting: true);
+        if (problems.isNotEmpty) throw ArgumentError(problems.join('\n'));
+        await MeetingReviewDao(txn).save(MeetingReview(
           accountUid: uid,
           input: review,
           isDraft: false,
@@ -165,26 +163,76 @@ class SqliteLocalStore implements LocalStore {
       });
 
   @override
-  Future<Review?> reviewFor(String uid, String meetingId) =>
-      ReviewDao(_db).get(uid, meetingId);
+  Future<MeetingReview?> meetingReviewFor(String uid, String meetingId) =>
+      MeetingReviewDao(_db).get(uid, meetingId);
 
   @override
-  Future<List<Review>> pendingDrafts(String uid) => ReviewDao(_db).drafts(uid);
+  Future<List<MeetingReview>> pendingDrafts(String uid) =>
+      MeetingReviewDao(_db).drafts(uid);
 
-  // Profile and sync
+  @override
+  Future<void> saveBookReview(
+    String uid,
+    Book book,
+    BookReviewInput review, {
+    BookReviewSource source = BookReviewSource.personal,
+  }) =>
+      _db.transaction((txn) async {
+        if (review.bookId != book.id) {
+          throw ArgumentError.value(review.bookId, 'bookId', 'Kitap uyuşmuyor.');
+        }
+        final problems = review.problems(bookPages: book.pages);
+        if (problems.isNotEmpty) throw ArgumentError(problems.join('\n'));
+        await BookDao(txn).save(book);
+        final dao = BookReviewDao(txn);
+        final existing = await dao.get(uid, book.id);
+        final keepClub = existing?.source == BookReviewSource.club;
+        final now = _clock();
+        final finishedAt = review.status == ReadingStatus.finished
+            ? (review.finishedAt ?? existing?.input.finishedAt ?? now)
+            : null;
+        await dao.save(BookReview(
+          accountUid: uid,
+          input: BookReviewInput(
+            bookId: book.id,
+            status: review.status,
+            currentPage: review.currentPage,
+            rating: review.rating,
+            comment: review.comment,
+            finishedAt: finishedAt,
+          ),
+          source: keepClub ? BookReviewSource.club : source,
+          updatedAt: now,
+        ));
+      });
+
+  @override
+  Future<BookReview?> bookReviewFor(String uid, String bookId) =>
+      BookReviewDao(_db).get(uid, bookId);
+
+  // Profile
+
+  @override
+  Future<List<ShelfItem>> shelf(String uid) => BookReviewDao(_db).shelf(uid);
+
+  @override
+  Future<List<MeetingHistoryItem>> attendedMeetings(String uid) =>
+      MeetingDao(_db).attended(uid);
 
   @override
   Future<ProfileStats> stats(String uid) async {
     final attendance = await MeetingDao(_db).attendance(uid);
-    final favorites = await BookDao(_db).favoriteCount(uid);
-    final average = await ReviewDao(_db).averageRating(uid);
+    final books = BookReviewDao(_db);
     return ProfileStats(
       attended: attendance.attended,
-      books: attendance.books,
-      favorites: favorites,
-      averageRating: average,
+      booksFinished: await books.finishedCount(uid),
+      favorites: await BookDao(_db).favoriteCount(uid),
+      averageBookRating: await books.averageRating(uid),
+      averageMeetingRating: await MeetingReviewDao(_db).averageRating(uid),
     );
   }
+
+  // Sync
 
   @override
   Future<DateTime?> lastSynced(String collection) =>

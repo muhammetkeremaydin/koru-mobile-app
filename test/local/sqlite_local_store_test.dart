@@ -1,9 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:koru/data/local/demo_seed.dart';
 import 'package:koru/data/local/schema.dart';
 import 'package:koru/data/local/sqlite_local_store.dart';
 import 'package:koru/data/models/models.dart';
+import 'package:path/path.dart' as pathlib;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
+import 'schema_v1_snapshot.dart';
 
 // Runs on the desktop (no emulator needed): sqflite_common_ffi gives the
 // same sqflite API on top of the system SQLite, with an in-memory file.
@@ -114,17 +119,17 @@ void main() {
         meeting('next', 'b2', 7, MeetingStatus.planned),
       ]);
       await store.setRsvp('efe', 'old', coming: true);
-      await store.submitReview(
-        'efe',
-        const ReviewInput(
-            meetingId: 'old',
-            readingStatus: ReadingStatus.finished,
-            rating: 8),
-      );
+      await store.submitMeetingReview(
+          'efe', const MeetingReviewInput(meetingId: 'old', rating: 8));
+      await store.saveBookReview('efe', book,
+          const BookReviewInput(
+              bookId: 'b1', status: ReadingStatus.finished, rating: 6),
+          source: BookReviewSource.club);
 
       final history = await store.meetingHistory('efe', moda.id);
       expect(history.map((h) => h.meeting.id), ['recent', 'old']);
-      expect(history.last.myRating, 8);
+      expect(history.last.myMeetingRating, 8);
+      expect(history.last.myBookRating, 6);
       expect(history.last.coming, isTrue);
       expect(history.first.coming, isNull);
       expect(history.first.book.title, 'Tutunamayanlar');
@@ -150,7 +155,7 @@ void main() {
     });
   });
 
-  group('reviews', () {
+  group('meeting reviews', () {
     setUp(() async {
       await seedGroup('efe');
       await store.upsertMeetings([meeting('m', 'b1', -1, MeetingStatus.done)]);
@@ -158,45 +163,88 @@ void main() {
 
     test('draft, then submit; a draft cannot overwrite a sent review',
         () async {
-      const draft = ReviewInput(
-          meetingId: 'm', readingStatus: ReadingStatus.reading, currentPage: 40);
-      expect(await store.saveDraft('efe', draft), isTrue);
+      const draft = MeetingReviewInput(meetingId: 'm', comment: 'yarım');
+      expect(await store.saveMeetingDraft('efe', draft), isTrue);
       expect(await store.pendingDrafts('efe'), hasLength(1));
 
-      await store.submitReview(
-        'efe',
-        const ReviewInput(
-            meetingId: 'm', readingStatus: ReadingStatus.finished, rating: 6),
-      );
+      await store.submitMeetingReview(
+          'efe', const MeetingReviewInput(meetingId: 'm', rating: 6));
       expect(await store.pendingDrafts('efe'), isEmpty);
-      expect(await store.saveDraft('efe', draft), isFalse);
-      expect((await store.reviewFor('efe', 'm'))!.input.rating, 6);
+      expect(await store.saveMeetingDraft('efe', draft), isFalse);
+      expect((await store.meetingReviewFor('efe', 'm'))!.input.rating, 6);
     });
 
-    test('submit rejects invalid input', () async {
-      Future<void> submit(ReviewInput input) => store.submitReview('efe', input);
+    test('submit needs a rating between 1 and 10', () async {
       await expectLater(
-        submit(const ReviewInput(
-            meetingId: 'm', readingStatus: ReadingStatus.finished)),
+        store.submitMeetingReview(
+            'efe', const MeetingReviewInput(meetingId: 'm')),
         throwsArgumentError,
       );
       await expectLater(
-        submit(const ReviewInput(
-            meetingId: 'm',
-            readingStatus: ReadingStatus.reading,
-            currentPage: 500)),
+        store.submitMeetingReview(
+            'efe', const MeetingReviewInput(meetingId: 'm', rating: 11)),
+        throwsArgumentError,
+      );
+    });
+  });
+
+  group('book reviews and shelf', () {
+    test('club and personal books land on one shelf', () async {
+      await seedGroup('efe');
+      await store.saveBookReview('efe', book,
+          const BookReviewInput(
+              bookId: 'b1', status: ReadingStatus.finished, rating: 9),
+          source: BookReviewSource.club);
+      now = now.add(const Duration(days: 1));
+      const outside = Book(id: 'x1', title: 'Simyacı', author: 'Paulo Coelho');
+      await store.saveBookReview('efe', outside,
+          const BookReviewInput(
+              bookId: 'x1', status: ReadingStatus.finished, rating: 7));
+
+      final shelf = await store.shelf('efe');
+      expect(shelf.map((i) => i.book.title), ['Simyacı', 'Dönüşüm']);
+      expect(shelf.first.review.source, BookReviewSource.personal);
+      expect(shelf.last.review.source, BookReviewSource.club);
+      expect(shelf.first.review.input.finishedAt, now);
+    });
+
+    test('a club book stays a club book when edited later', () async {
+      await seedGroup('efe');
+      await store.saveBookReview('efe', book,
+          const BookReviewInput(bookId: 'b1', status: ReadingStatus.reading),
+          source: BookReviewSource.club);
+      await store.saveBookReview('efe', book,
+          const BookReviewInput(
+              bookId: 'b1', status: ReadingStatus.finished, rating: 8));
+      final review = (await store.bookReviewFor('efe', 'b1'))!;
+      expect(review.source, BookReviewSource.club);
+      expect(review.input.rating, 8);
+    });
+
+    test('rejects invalid book reviews', () async {
+      await seedGroup('efe');
+      Future<void> save(BookReviewInput input) =>
+          store.saveBookReview('efe', book, input);
+      await expectLater(
+        save(const BookReviewInput(
+            bookId: 'b1', status: ReadingStatus.finished)),
         throwsArgumentError,
       );
       await expectLater(
-        submit(const ReviewInput(
-            meetingId: 'm', readingStatus: ReadingStatus.finished, rating: 11)),
+        save(const BookReviewInput(
+            bookId: 'b1', status: ReadingStatus.reading, currentPage: 500)),
+        throwsArgumentError,
+      );
+      await expectLater(
+        save(const BookReviewInput(
+            bookId: 'b1', status: ReadingStatus.finished, rating: 0)),
         throwsArgumentError,
       );
     });
   });
 
   group('profile', () {
-    test('stats count finished meetings I came to', () async {
+    test('stats and "Buluşmalarım"', () async {
       await seedGroup('efe');
       await store.upsertMeetings([
         meeting('a', 'b1', -30, MeetingStatus.done),
@@ -209,26 +257,34 @@ void main() {
       }
       await store.setRsvp('efe', 'c', coming: false);
       for (final (id, rating) in [('a', 6), ('b', 9)]) {
-        await store.submitReview(
-          'efe',
-          ReviewInput(
-              meetingId: id,
-              readingStatus: ReadingStatus.finished,
-              rating: rating),
-        );
+        await store.submitMeetingReview(
+            'efe', MeetingReviewInput(meetingId: id, rating: rating));
       }
+      await store.saveBookReview('efe', book,
+          const BookReviewInput(
+              bookId: 'b1', status: ReadingStatus.finished, rating: 8),
+          source: BookReviewSource.club);
+      await store.saveBookReview('efe', other,
+          const BookReviewInput(bookId: 'b2', status: ReadingStatus.reading));
 
       final stats = await store.stats('efe');
       expect(stats.attended, 2);
-      expect(stats.books, 1);
-      expect(stats.averageRating, 7.5);
+      expect(stats.booksFinished, 1);
+      expect(stats.averageMeetingRating, 7.5);
+      expect(stats.averageBookRating, 8);
+
+      final attended = await store.attendedMeetings('efe');
+      expect(attended.map((m) => m.meeting.id), ['b', 'a']);
+      expect(attended.first.myMeetingRating, 9);
+      expect(attended.first.myBookRating, 8);
     });
 
-    test('empty profile has no average', () async {
+    test('empty profile has no averages', () async {
       await store.rememberLogin(account('yeni'));
       final stats = await store.stats('yeni');
       expect(stats.attended, 0);
-      expect(stats.averageRating, isNull);
+      expect(stats.averageBookRating, isNull);
+      expect(stats.averageMeetingRating, isNull);
     });
   });
 
@@ -242,11 +298,14 @@ void main() {
       await store.setRsvp('efe', 'm', coming: true);
       await store.setRsvp('kerem', 'm', coming: true);
       await store.addFavorite('efe', other);
+      await store.saveBookReview('efe', other,
+          const BookReviewInput(bookId: 'b2', status: ReadingStatus.reading));
 
       await store.removeAccount('efe');
 
       expect((await store.accountsOnDevice()).map((a) => a.uid), ['kerem']);
       expect(await store.favorites('efe'), isEmpty);
+      expect(await store.shelf('efe'), isEmpty);
       expect((await store.stats('kerem')).attended, 1);
       // Group still has a member on the device, so its history stays.
       expect(await store.meetingHistory('kerem', moda.id), hasLength(1));
@@ -256,6 +315,90 @@ void main() {
       expect(await probe.count('groups'), 0);
       expect(await probe.count('meetings'), 0);
       expect(await probe.count('books'), 0);
+    });
+  });
+
+  group('migration', () {
+    test('1 -> 2 moves old reviews to the shelf and drops my_reviews',
+        () async {
+      final dir = await Directory.systemTemp.createTemp('koru_migration');
+      final file = pathlib.join(dir.path, 'koru.db');
+      final v1 = await databaseFactoryFfi.openDatabase(
+        file,
+        options: OpenDatabaseOptions(
+          version: 1,
+          onConfigure: (db) => db.execute('PRAGMA foreign_keys = ON'),
+          onCreate: (db, version) async {
+            for (final sql in kSchemaV1) {
+              await db.execute(sql);
+            }
+          },
+        ),
+      );
+      final t = now.millisecondsSinceEpoch;
+      await v1.insert('accounts', {
+        'uid': 'efe',
+        'email': 'efe@ornek.com',
+        'display_name': 'Efe',
+        'color': '#B4532A',
+        'last_login_at': t,
+        'is_current': 1,
+      });
+      await v1.insert('groups', {'id': 'g1', 'name': 'Moda Okurları'});
+      await v1.insert('group_memberships',
+          {'account_uid': 'efe', 'group_id': 'g1', 'role': 'member'});
+      await v1.insert('books',
+          {'id': 'b1', 'title': 'Dönüşüm', 'author': 'Franz Kafka', 'pages': 96});
+      await v1.insert('books',
+          {'id': 'b2', 'title': 'Tutunamayanlar', 'author': 'Oğuz Atay'});
+      for (final (id, book, day) in [('m1', 'b1', 1), ('m2', 'b1', 2), ('m3', 'b2', 3)]) {
+        await v1.insert('meetings', {
+          'id': id,
+          'group_id': 'g1',
+          'book_id': book,
+          'date': t + day,
+          'location': 'Kadıköy',
+          'status': 'done',
+        });
+      }
+      // Two reviews of the same book: the newer one (finished, 9) wins.
+      // A "not started" review has nothing to move.
+      for (final (meetingId, status, page, rating, at) in [
+        ('m1', 'reading', 40, null, t + 1),
+        ('m2', 'finished', 96, 9, t + 2),
+        ('m3', 'notStarted', null, null, t + 3),
+      ]) {
+        await v1.insert('my_reviews', {
+          'account_uid': 'efe',
+          'meeting_id': meetingId,
+          'reading_status': status,
+          'current_page': page,
+          'rating': rating,
+          'is_draft': 0,
+          'updated_at': at,
+        });
+      }
+      await v1.close();
+
+      final migrated = await SqliteLocalStore.open(
+        factory: databaseFactoryFfi,
+        path: file,
+        clock: () => now,
+      );
+      final shelf = await migrated.shelf('efe');
+      expect(shelf, hasLength(1));
+      expect(shelf.single.book.id, 'b1');
+      expect(shelf.single.review.input.status, ReadingStatus.finished);
+      expect(shelf.single.review.input.rating, 9);
+      expect(shelf.single.review.source, BookReviewSource.club);
+
+      final probe = await KoruDatabaseProbe.of(migrated);
+      expect(probe.tables, isNot(contains('my_reviews')));
+      expect(probe.tables, containsAll(kTables));
+      expect(await migrated.debugDatabase.getVersion(), kSchemaVersion);
+
+      await migrated.close();
+      await dir.delete(recursive: true);
     });
   });
 
@@ -271,8 +414,11 @@ void main() {
       expect(history, hasLength(3));
       final stats = await store.stats(efe.uid);
       expect(stats.attended, 2);
-      expect(stats.averageRating, 8);
+      expect(stats.booksFinished, 4);
+      expect(stats.averageBookRating, 8);
+      expect(stats.averageMeetingRating, 8);
       expect(stats.favorites, 2);
+      expect(await store.shelf(efe.uid), hasLength(5));
       expect(await store.pendingDrafts(efe.uid), hasLength(1));
     });
   });

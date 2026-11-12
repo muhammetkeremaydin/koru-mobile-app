@@ -108,37 +108,86 @@ Future<bool> seedDemoData(LocalStore store, {DateTime? now}) async {
   ];
   await store.upsertMeetings(meetings);
 
-  // Efe came to every Moda meeting except Dönüşüm, and reviewed two.
+  // Efe came to every Moda meeting except Dönüşüm.
   await store.setRsvp(efe.uid, 'demo-m1', coming: true);
   await store.setRsvp(efe.uid, 'demo-m2', coming: false);
   await store.setRsvp(efe.uid, 'demo-m3', coming: true);
   await store.setRsvp(efe.uid, 'demo-m4', coming: true);
-  await store.submitReview(
+
+  // Meeting reviews: how the evenings went.
+  await store.submitMeetingReview(
     efe.uid,
-    const ReviewInput(
+    const MeetingReviewInput(
       meetingId: 'demo-m1',
-      readingStatus: ReadingStatus.finished,
-      currentPage: 160,
       rating: 9,
       comment: 'Raif Efendi bölümü herkesi susturdu.',
     ),
   );
-  await store.submitReview(
+  await store.submitMeetingReview(
     efe.uid,
-    const ReviewInput(
-      meetingId: 'demo-m3',
-      readingStatus: ReadingStatus.finished,
-      currentPage: 382,
-      rating: 7,
-    ),
+    const MeetingReviewInput(meetingId: 'demo-m3', rating: 7),
   );
   // Half-written review for the next meeting, kept as a draft.
-  await store.saveDraft(
+  await store.saveMeetingDraft(
     efe.uid,
-    const ReviewInput(
-      meetingId: 'demo-m4',
-      readingStatus: ReadingStatus.reading,
-      currentPage: 120,
+    const MeetingReviewInput(meetingId: 'demo-m4', comment: 'İlk dört bölüm'),
+  );
+
+  // Book reviews from the club...
+  await store.saveBookReview(
+    efe.uid,
+    madonna,
+    const BookReviewInput(
+        bookId: 'demo-madonna',
+        status: ReadingStatus.finished,
+        currentPage: 160,
+        rating: 9),
+    source: BookReviewSource.club,
+  );
+  await store.saveBookReview(
+    efe.uid,
+    enstitu,
+    const BookReviewInput(
+        bookId: 'demo-enstitu', status: ReadingStatus.finished, rating: 8),
+    source: BookReviewSource.club,
+  );
+  await store.saveBookReview(
+    efe.uid,
+    tutunamayanlar,
+    const BookReviewInput(
+        bookId: 'demo-tutunamayanlar',
+        status: ReadingStatus.reading,
+        currentPage: 120),
+    source: BookReviewSource.club,
+  );
+  // ...and two books Efe read on his own.
+  await store.saveBookReview(
+    efe.uid,
+    const Book(
+        id: 'demo-simyaci',
+        title: 'Simyacı',
+        author: 'Paulo Coelho',
+        pages: 188),
+    BookReviewInput(
+      bookId: 'demo-simyaci',
+      status: ReadingStatus.finished,
+      rating: 7,
+      comment: 'Kısa ama akılda kalan bir yolculuk.',
+      finishedAt: daysFromToday(-20),
+    ),
+  );
+  await store.saveBookReview(
+    efe.uid,
+    const Book(
+        id: 'demo-beyaz-geceler',
+        title: 'Beyaz Geceler',
+        author: 'Fyodor Dostoyevski',
+        pages: 80),
+    BookReviewInput(
+      bookId: 'demo-beyaz-geceler',
+      status: ReadingStatus.finished,
+      rating: 8,
+      finishedAt: daysFromToday(-40),
     ),
   );
 

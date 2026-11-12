@@ -2,12 +2,17 @@
 ///
 /// Firestore stays the source of truth for club data. These tables are an
 /// offline-first mirror (groups, books, meetings) plus the member's own
-/// data (accounts on this device, favorites, RSVPs, review drafts).
+/// data (accounts on this device, favorites, RSVPs, meeting reviews and a
+/// personal shelf of book reviews, club books and books read outside).
 /// Times are stored as milliseconds since epoch (INTEGER), booleans as 0/1.
 library;
 
 /// Bump this and add an entry to `migrations.dart` whenever the schema changes.
-const int kSchemaVersion = 1;
+///
+/// History: 1 = first release (one review per meeting, my_reviews).
+///          2 = book and meeting are reviewed separately (meeting_reviews,
+///              book_reviews); books read outside the club can be added.
+const int kSchemaVersion = 2;
 
 const List<String> kCreateTables = [
   '''
@@ -67,18 +72,8 @@ CREATE TABLE my_rsvps (
   updated_at  INTEGER NOT NULL,
   PRIMARY KEY (account_uid, meeting_id)
 )''',
-  '''
-CREATE TABLE my_reviews (
-  account_uid    TEXT NOT NULL REFERENCES accounts(uid) ON DELETE CASCADE,
-  meeting_id     TEXT NOT NULL REFERENCES meetings(id) ON DELETE CASCADE,
-  reading_status TEXT NOT NULL CHECK (reading_status IN ('notStarted', 'reading', 'finished')),
-  current_page   INTEGER CHECK (current_page IS NULL OR current_page >= 0),
-  rating         INTEGER CHECK (rating IS NULL OR rating BETWEEN 1 AND 10),
-  comment        TEXT,
-  is_draft       INTEGER NOT NULL DEFAULT 1 CHECK (is_draft IN (0, 1)),
-  updated_at     INTEGER NOT NULL,
-  PRIMARY KEY (account_uid, meeting_id)
-)''',
+  kCreateMeetingReviews,
+  kCreateBookReviews,
   '''
 CREATE TABLE sync_state (
   collection     TEXT PRIMARY KEY,
@@ -87,11 +82,13 @@ CREATE TABLE sync_state (
   'CREATE INDEX idx_meetings_group_date ON meetings (group_id, date)',
   'CREATE INDEX idx_meetings_book ON meetings (book_id)',
   'CREATE INDEX idx_favorites_book ON favorites (book_id)',
+  kIndexBookReviews,
 ];
 
 /// Every table, in an order that is safe for deleting rows (children first).
 const List<String> kTables = [
-  'my_reviews',
+  'book_reviews',
+  'meeting_reviews',
   'my_rsvps',
   'meetings',
   'favorites',
@@ -101,3 +98,35 @@ const List<String> kTables = [
   'accounts',
   'sync_state',
 ];
+
+/// The member's review of a meeting (how the evening went), separate from
+/// what they think of the book. Stays a draft until it is sent.
+const String kCreateMeetingReviews = '''
+CREATE TABLE meeting_reviews (
+  account_uid TEXT NOT NULL REFERENCES accounts(uid) ON DELETE CASCADE,
+  meeting_id  TEXT NOT NULL REFERENCES meetings(id) ON DELETE CASCADE,
+  rating      INTEGER CHECK (rating IS NULL OR rating BETWEEN 1 AND 10),
+  comment     TEXT,
+  is_draft    INTEGER NOT NULL DEFAULT 1 CHECK (is_draft IN (0, 1)),
+  updated_at  INTEGER NOT NULL,
+  PRIMARY KEY (account_uid, meeting_id)
+)''';
+
+/// The member's shelf: one row per book they read, with the club or on
+/// their own (source). Shown on the profile under "Okuduklarım".
+const String kCreateBookReviews = '''
+CREATE TABLE book_reviews (
+  account_uid  TEXT NOT NULL REFERENCES accounts(uid) ON DELETE CASCADE,
+  book_id      TEXT NOT NULL REFERENCES books(id),
+  status       TEXT NOT NULL CHECK (status IN ('reading', 'finished', 'abandoned')),
+  current_page INTEGER CHECK (current_page IS NULL OR current_page >= 0),
+  rating       INTEGER CHECK (rating IS NULL OR rating BETWEEN 1 AND 10),
+  comment      TEXT,
+  source       TEXT NOT NULL CHECK (source IN ('club', 'personal')),
+  finished_at  INTEGER,
+  updated_at   INTEGER NOT NULL,
+  PRIMARY KEY (account_uid, book_id)
+)''';
+
+const String kIndexBookReviews =
+    'CREATE INDEX idx_book_reviews_book ON book_reviews (book_id)';

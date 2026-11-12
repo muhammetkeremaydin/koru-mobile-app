@@ -61,10 +61,11 @@ ORDER BY f.added_at DESC''', [uid]);
     return rows.first['n'] as int;
   }
 
-  /// Books that no meeting and no favorite points to any more.
+  /// Books that no meeting, favorite or shelf entry points to any more.
   Future<int> pruneOrphans() => _db.delete(
         'books',
         where: 'id NOT IN (SELECT book_id FROM meetings) '
-            'AND id NOT IN (SELECT book_id FROM favorites)',
+            'AND id NOT IN (SELECT book_id FROM favorites) '
+            'AND id NOT IN (SELECT book_id FROM book_reviews)',
       );
 }

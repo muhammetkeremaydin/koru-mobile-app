@@ -40,18 +40,36 @@ abstract interface class LocalStore {
   });
   Future<void> setRsvp(String uid, String meetingId, {required bool coming});
 
-  // Reviews
-  /// Returns false (and changes nothing) if a sent review already exists;
-  /// editing a sent review goes through [submitReview] again.
-  Future<bool> saveDraft(String uid, ReviewInput draft);
+  // Reviews: the review screen (06) has a "Kitap" and a "Buluşma" tab.
+
+  /// Saves the "Buluşma" tab as a draft. Returns false (and changes
+  /// nothing) if a sent review already exists; editing a sent review goes
+  /// through [submitMeetingReview] again.
+  Future<bool> saveMeetingDraft(String uid, MeetingReviewInput draft);
 
   /// Throws [ArgumentError] with the form messages if the input is invalid.
-  Future<void> submitReview(String uid, ReviewInput review);
-  Future<Review?> reviewFor(String uid, String meetingId);
-  Future<List<Review>> pendingDrafts(String uid);
+  Future<void> submitMeetingReview(String uid, MeetingReviewInput review);
+  Future<MeetingReview?> meetingReviewFor(String uid, String meetingId);
+  Future<List<MeetingReview>> pendingDrafts(String uid);
 
-  // Profile and sync
+  /// Saves a book on the member's shelf: from the "Kitap" tab of a club
+  /// meeting ([BookReviewSource.club]) or from screen 10 for a book read
+  /// outside the club ([BookReviewSource.personal]). A book the club read
+  /// stays marked as a club book. Throws [ArgumentError] if invalid.
+  Future<void> saveBookReview(
+    String uid,
+    Book book,
+    BookReviewInput review, {
+    BookReviewSource source = BookReviewSource.personal,
+  });
+  Future<BookReview?> bookReviewFor(String uid, String bookId);
+
+  // Profile (09): "Okuduklarım", "Buluşmalarım" and the numbers on top
+  Future<List<ShelfItem>> shelf(String uid);
+  Future<List<MeetingHistoryItem>> attendedMeetings(String uid);
   Future<ProfileStats> stats(String uid);
+
+  // Sync
   Future<DateTime?> lastSynced(String collection);
   Future<void> markSynced(String collection);
 

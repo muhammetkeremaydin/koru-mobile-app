@@ -64,14 +64,15 @@ class Meeting {
       );
 }
 
-/// A row of the "Önceki buluşmalar" list: the meeting, its book and
-/// what the signed-in member did (came or not, rating given).
+/// A row of the "Önceki buluşmalar" list and of "Buluşmalarım" on the
+/// profile: the meeting, its book and what the member did.
 class MeetingHistoryItem {
   const MeetingHistoryItem({
     required this.meeting,
     required this.book,
     this.coming,
-    this.myRating,
+    this.myMeetingRating,
+    this.myBookRating,
   });
 
   final Meeting meeting;
@@ -80,6 +81,9 @@ class MeetingHistoryItem {
   /// null = the member never answered the RSVP.
   final bool? coming;
 
-  /// Rating from a submitted review, 1 to 10.
-  final int? myRating;
+  /// From a sent meeting review, 1 to 10.
+  final int? myMeetingRating;
+
+  /// From the member's shelf, 1 to 10.
+  final int? myBookRating;
 }

@@ -48,26 +48,16 @@ class MeetingDao {
   }) async {
     final q = query?.trim();
     final pattern = (q == null || q.isEmpty) ? null : '%${_escapeLike(q)}%';
-    final rows = await _db.rawQuery(r'''
-SELECT m.*,
-       b.title     AS book_title,
-       b.author    AS book_author,
-       b.pages     AS book_pages,
-       b.isbn      AS book_isbn,
-       b.cover_url AS book_cover_url,
-       r.coming    AS my_coming,
-       v.rating    AS my_rating
-FROM meetings m
-JOIN books b ON b.id = m.book_id
-LEFT JOIN my_rsvps r   ON r.meeting_id = m.id AND r.account_uid = ?
-LEFT JOIN my_reviews v ON v.meeting_id = m.id AND v.account_uid = ? AND v.is_draft = 0
+    final rows = await _db.rawQuery('''
+$_selectWithMine
 WHERE m.group_id = ?
   AND (m.status = 'done' OR (m.status = 'planned' AND m.date < ?))
   AND (? IS NULL
-       OR b.title LIKE ? ESCAPE '\'
-       OR b.author LIKE ? ESCAPE '\'
-       OR m.location LIKE ? ESCAPE '\')
+       OR b.title LIKE ? ESCAPE '\\'
+       OR b.author LIKE ? ESCAPE '\\'
+       OR m.location LIKE ? ESCAPE '\\')
 ORDER BY m.date DESC''', [
+      uid,
       uid,
       uid,
       groupId,
@@ -77,22 +67,52 @@ ORDER BY m.date DESC''', [
       pattern,
       pattern,
     ]);
-    return rows.map((row) {
-      final coming = row['my_coming'] as int?;
-      return MeetingHistoryItem(
-        meeting: Meeting.fromMap(row),
-        book: Book(
-          id: row['book_id'] as String,
-          title: row['book_title'] as String,
-          author: row['book_author'] as String,
-          pages: row['book_pages'] as int?,
-          isbn: row['book_isbn'] as String?,
-          coverUrl: row['book_cover_url'] as String?,
-        ),
-        coming: coming == null ? null : coming == 1,
-        myRating: row['my_rating'] as int?,
-      );
-    }).toList();
+    return rows.map(_historyItem).toList();
+  }
+
+  /// "Buluşmalarım" on the profile: finished meetings [uid] said yes to,
+  /// in every group on this device, newest first.
+  Future<List<MeetingHistoryItem>> attended(String uid) async {
+    final rows = await _db.rawQuery('''
+$_selectWithMine
+WHERE r.coming = 1 AND m.status = 'done'
+ORDER BY m.date DESC''', [uid, uid, uid]);
+    return rows.map(_historyItem).toList();
+  }
+
+  /// Shared by [history] and [attended]; takes uid three times.
+  static const String _selectWithMine = '''
+SELECT m.*,
+       b.title     AS book_title,
+       b.author    AS book_author,
+       b.pages     AS book_pages,
+       b.isbn      AS book_isbn,
+       b.cover_url AS book_cover_url,
+       r.coming    AS my_coming,
+       v.rating    AS my_meeting_rating,
+       s.rating    AS my_book_rating
+FROM meetings m
+JOIN books b ON b.id = m.book_id
+LEFT JOIN my_rsvps r        ON r.meeting_id = m.id AND r.account_uid = ?
+LEFT JOIN meeting_reviews v ON v.meeting_id = m.id AND v.account_uid = ? AND v.is_draft = 0
+LEFT JOIN book_reviews s    ON s.book_id = m.book_id AND s.account_uid = ?''';
+
+  static MeetingHistoryItem _historyItem(Map<String, Object?> row) {
+    final coming = row['my_coming'] as int?;
+    return MeetingHistoryItem(
+      meeting: Meeting.fromMap(row),
+      book: Book(
+        id: row['book_id'] as String,
+        title: row['book_title'] as String,
+        author: row['book_author'] as String,
+        pages: row['book_pages'] as int?,
+        isbn: row['book_isbn'] as String?,
+        coverUrl: row['book_cover_url'] as String?,
+      ),
+      coming: coming == null ? null : coming == 1,
+      myMeetingRating: row['my_meeting_rating'] as int?,
+      myBookRating: row['my_book_rating'] as int?,
+    );
   }
 
   Future<void> setRsvp(
