@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
-<title>Profil (Profile) (light)</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" xmlns:c2pa="http://c2pa.org/manifest">
+<title>Profil: okuduklarım (Profile, books read) (light)</title>
 <rect x="0" y="0" width="390" height="844" rx="0" fill="#f9f7f0"/>
 <line x1="0" y1="132" x2="390" y2="132" stroke="#e6e9e6" stroke-width="1"/>
 <line x1="0" y1="164" x2="390" y2="164" stroke="#e6e9e6" stroke-width="1"/>
@@ -45,73 +45,92 @@
 <rect x="334" y="54" width="36" height="36" rx="4" fill="#fffdf7" stroke="#b9c7d4" stroke-width="1"/>
 <g transform="translate(342,62) scale(0.8333)"><path d="M12 8a4 4 0 1 0 0 8a4 4 0 1 0 0-8z M12 2v2 M12 20v2 M2 12h2 M20 12h2 M4.9 4.9l1.4 1.4 M17.7 17.7l1.4 1.4 M4.9 19.1l1.4-1.4 M17.7 6.3l1.4-1.4" fill="none" stroke="#172d45" stroke-width="1.92" stroke-linecap="round" stroke-linejoin="round"/></g>
 <line x1="0" y1="100" x2="390" y2="100" stroke="#172d45" stroke-width="2"/>
-<rect x="26" y="126" width="84" height="84" rx="6" fill="#ffe16b"/>
-<rect x="20" y="120" width="84" height="84" rx="6" fill="#1f5874" stroke="#172d45" stroke-width="2"/>
-<text x="62" y="174" font-family="Bricolage Grotesque" font-size="30" font-weight="700" fill="#ffffff" text-anchor="middle">EG</text>
-<rect x="122" y="120" width="105.76" height="25" rx="0" fill="#ffe16b"/>
-<text x="130" y="137" font-family="Bricolage Grotesque" font-size="12" font-weight="700" fill="#172d45" text-anchor="start" letter-spacing="0.4">ÜYE NO / 01</text>
-<text x="122" y="178" font-family="Bricolage Grotesque" font-size="30" font-weight="700" fill="#172d45" text-anchor="start">Efe Gürel</text>
-<text x="122" y="202" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">Yönetici · Moda Okurları</text>
-<rect x="25" y="229" width="350" height="42" rx="4" fill="#ffe16b"/>
-<rect x="20" y="224" width="350" height="42" rx="4" fill="#fffdf7" stroke="#172d45" stroke-width="1.5"/>
-<g transform="translate(105.2,236.0) scale(0.7500)"><path d="M4 5h16v14H4z M4 16l5-5 4 4 2-2 5 5 M15.5 8.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 1 0 0-3z" fill="none" stroke="#172d45" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="205.0" y="250.0" font-family="Literata" font-size="15" font-weight="600" fill="#172d45" text-anchor="middle">Fotoğrafı değiştir</text>
-<line x1="20" y1="290" x2="370" y2="290" stroke="#172d45" stroke-width="2"/>
-<text x="78" y="334" font-family="Bricolage Grotesque" font-size="28" font-weight="700" fill="#172d45" text-anchor="middle">18</text>
-<text x="78" y="354" font-family="Literata" font-size="12" font-weight="400" fill="#617083" text-anchor="middle">Buluşma</text>
-<line x1="137" y1="302" x2="137" y2="360" stroke="#b9c7d4" stroke-width="1"/>
-<text x="195" y="334" font-family="Bricolage Grotesque" font-size="28" font-weight="700" fill="#172d45" text-anchor="middle">14</text>
-<text x="195" y="354" font-family="Literata" font-size="12" font-weight="400" fill="#617083" text-anchor="middle">Kitap</text>
-<line x1="254" y1="302" x2="254" y2="360" stroke="#b9c7d4" stroke-width="1"/>
-<text x="312" y="334" font-family="Bricolage Grotesque" font-size="28" font-weight="700" fill="#172d45" text-anchor="middle">8,1</text>
-<text x="312" y="354" font-family="Literata" font-size="12" font-weight="400" fill="#617083" text-anchor="middle">Ort. puan</text>
-<line x1="20" y1="372" x2="370" y2="372" stroke="#b9c7d4" stroke-width="1"/>
-<text x="20" y="404" font-family="Bricolage Grotesque" font-size="14" font-weight="500" fill="#617083" text-anchor="start">Özet</text>
-<text x="78" y="404" font-family="Bricolage Grotesque" font-size="14" font-weight="700" fill="#172d45" text-anchor="start">Kitaplarım</text>
-<rect x="78" y="414" width="78" height="3" rx="0" fill="#1f5874"/>
-<text x="172" y="404" font-family="Bricolage Grotesque" font-size="14" font-weight="500" fill="#617083" text-anchor="start">Galerim</text>
-<text x="252" y="404" font-family="Bricolage Grotesque" font-size="14" font-weight="500" fill="#617083" text-anchor="start">Görünüm</text>
-<text x="338" y="404" font-family="Bricolage Grotesque" font-size="14" font-weight="500" fill="#617083" text-anchor="start">Güv.</text>
-<line x1="0" y1="417" x2="390" y2="417" stroke="#b9c7d4" stroke-width="1"/>
-<rect x="20" y="436" width="89.44000000000001" height="25" rx="0" fill="#ffe16b"/>
-<text x="28" y="453" font-family="Bricolage Grotesque" font-size="12" font-weight="700" fill="#172d45" text-anchor="start" letter-spacing="0.4">FAVORİLER</text>
-<g transform="rotate(0 38.0 510.0)">
-<rect x="24" y="489" width="36" height="52" rx="3" fill="#000000" opacity="0.18"/>
-<rect x="20" y="484" width="36" height="52" rx="3" fill="#23525b" stroke="#c9a15f" stroke-width="2"/>
-<rect x="20" y="484" width="4" height="52" rx="2" fill="#000000" opacity="0.25"/>
-<g transform="translate(33.68,493.36) scale(0.3600)"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8L3.5 9.7l5.9-.8z" fill="#c9a15f" stroke="#c9a15f" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/></g>
+<rect x="26" y="126" width="72" height="72" rx="6" fill="#ffe16b"/>
+<rect x="20" y="120" width="72" height="72" rx="6" fill="#1f5874" stroke="#172d45" stroke-width="2"/>
+<text x="56" y="167" font-family="Bricolage Grotesque" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">EG</text>
+<rect x="108" y="118" width="105.76" height="25" rx="0" fill="#ffe16b"/>
+<text x="116" y="135" font-family="Bricolage Grotesque" font-size="12" font-weight="700" fill="#172d45" text-anchor="start" letter-spacing="0.4">ÜYE NO / 01</text>
+<text x="108" y="170" font-family="Bricolage Grotesque" font-size="26" font-weight="700" fill="#172d45" text-anchor="start">Efe Gürel</text>
+<text x="108" y="192" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">Yönetici · Moda Okurları</text>
+<line x1="20" y1="212" x2="370" y2="212" stroke="#172d45" stroke-width="2"/>
+<text x="78" y="252" font-family="Bricolage Grotesque" font-size="26" font-weight="700" fill="#172d45" text-anchor="middle">18</text>
+<text x="78" y="270" font-family="Literata" font-size="12" font-weight="400" fill="#617083" text-anchor="middle">Buluşma</text>
+<line x1="137" y1="222" x2="137" y2="274" stroke="#b9c7d4" stroke-width="1"/>
+<text x="195" y="252" font-family="Bricolage Grotesque" font-size="26" font-weight="700" fill="#172d45" text-anchor="middle">21</text>
+<text x="195" y="270" font-family="Literata" font-size="12" font-weight="400" fill="#617083" text-anchor="middle">Kitap</text>
+<line x1="254" y1="222" x2="254" y2="274" stroke="#b9c7d4" stroke-width="1"/>
+<text x="312" y="252" font-family="Bricolage Grotesque" font-size="26" font-weight="700" fill="#172d45" text-anchor="middle">8,1</text>
+<text x="312" y="270" font-family="Literata" font-size="12" font-weight="400" fill="#617083" text-anchor="middle">Ort. puan</text>
+<line x1="20" y1="284" x2="370" y2="284" stroke="#b9c7d4" stroke-width="1"/>
+<rect x="20.0" y="296" width="173.0" height="40" rx="4" fill="#ffe16b" stroke="#172d45" stroke-width="1.5"/>
+<text x="106.5" y="321.0" font-family="Literata" font-size="14" font-weight="600" fill="#172d45" text-anchor="middle">Okuduklarım</text>
+<rect x="197.0" y="296" width="173.0" height="40" rx="4" fill="#fffdf7" stroke="#b9c7d4" stroke-width="1"/>
+<text x="283.5" y="321.0" font-family="Literata" font-size="14" font-weight="600" fill="#172d45" text-anchor="middle">Buluşmalarım</text>
+<text x="20" y="362" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">21 kitap · 7 tanesi kulüp dışı</text>
+<rect x="240" y="344" width="130" height="30" rx="4" fill="#fffdf7" stroke="#172d45" stroke-width="1.5"/>
+<g transform="translate(248.0,350.0) scale(0.7500)"><path d="M12 5v14 M5 12h14" fill="none" stroke="#172d45" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="315.0" y="364.0" font-family="Literata" font-size="15" font-weight="600" fill="#172d45" text-anchor="middle">Kitap ekle</text>
+<line x1="20" y1="384" x2="370" y2="384" stroke="#172d45" stroke-width="1.5"/>
+<g transform="rotate(0 37.0 417.0)">
+<rect x="24" y="397" width="34" height="50" rx="3" fill="#000000" opacity="0.18"/>
+<rect x="20" y="392" width="34" height="50" rx="3" fill="#23525b" stroke="#c9a15f" stroke-width="2"/>
+<rect x="20" y="392" width="4" height="50" rx="2" fill="#000000" opacity="0.25"/>
+<g transform="translate(32.92,401.0) scale(0.3400)"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8L3.5 9.7l5.9-.8z" fill="#c9a15f" stroke="#c9a15f" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/></g>
 </g>
-<text x="70" y="506" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#172d45" text-anchor="start">Tutunamayanlar</text>
-<text x="70" y="526" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">Oğuz Atay</text>
-<text x="370" y="516" font-family="Literata" font-size="13" font-weight="600" fill="#ec543f" text-anchor="end">★ 9</text>
-<line x1="20" y1="546" x2="370" y2="546" stroke="#b9c7d4" stroke-width="1"/>
-<g transform="rotate(0 38.0 580.0)">
-<rect x="24" y="559" width="36" height="52" rx="3" fill="#000000" opacity="0.18"/>
-<rect x="20" y="554" width="36" height="52" rx="3" fill="#23525b" stroke="#c9a15f" stroke-width="2"/>
-<rect x="20" y="554" width="4" height="52" rx="2" fill="#000000" opacity="0.25"/>
-<g transform="translate(33.68,563.36) scale(0.3600)"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8L3.5 9.7l5.9-.8z" fill="#c9a15f" stroke="#c9a15f" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="68" y="412" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#172d45" text-anchor="start">Kürk Mantolu Madonna</text>
+<text x="68" y="432" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">Sabahattin Ali</text>
+<rect x="318" y="396" width="52" height="18" rx="0" fill="#ffe16b"/>
+<text x="344.0" y="409" font-family="Bricolage Grotesque" font-size="10" font-weight="700" fill="#172d45" text-anchor="middle">KULÜP</text>
+<text x="370" y="436" font-family="Literata" font-size="13" font-weight="600" fill="#ec543f" text-anchor="end">★ 9</text>
+<line x1="20" y1="456" x2="370" y2="456" stroke="#b9c7d4" stroke-width="1"/>
+<g transform="rotate(0 37.0 489.0)">
+<rect x="24" y="469" width="34" height="50" rx="3" fill="#000000" opacity="0.18"/>
+<rect x="20" y="464" width="34" height="50" rx="3" fill="#23525b" stroke="#c9a15f" stroke-width="2"/>
+<rect x="20" y="464" width="4" height="50" rx="2" fill="#000000" opacity="0.25"/>
+<g transform="translate(32.92,473.0) scale(0.3400)"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8L3.5 9.7l5.9-.8z" fill="#c9a15f" stroke="#c9a15f" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/></g>
 </g>
-<text x="70" y="576" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#172d45" text-anchor="start">Beyaz Geceler</text>
-<text x="70" y="596" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">Dostoyevski</text>
-<text x="370" y="586" font-family="Literata" font-size="13" font-weight="600" fill="#ec543f" text-anchor="end">★ 8</text>
-<line x1="20" y1="616" x2="370" y2="616" stroke="#b9c7d4" stroke-width="1"/>
-<g transform="rotate(0 38.0 650.0)">
-<rect x="24" y="629" width="36" height="52" rx="3" fill="#000000" opacity="0.18"/>
-<rect x="20" y="624" width="36" height="52" rx="3" fill="#23525b" stroke="#c9a15f" stroke-width="2"/>
-<rect x="20" y="624" width="4" height="52" rx="2" fill="#000000" opacity="0.25"/>
-<g transform="translate(33.68,633.36) scale(0.3600)"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8L3.5 9.7l5.9-.8z" fill="#c9a15f" stroke="#c9a15f" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="68" y="484" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#172d45" text-anchor="start">Simyacı</text>
+<text x="68" y="504" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">Paulo Coelho</text>
+<rect x="318" y="468" width="52" height="18" rx="0" fill="#eef1ec"/>
+<text x="344.0" y="481" font-family="Bricolage Grotesque" font-size="10" font-weight="700" fill="#172d45" text-anchor="middle">KENDİ</text>
+<text x="370" y="508" font-family="Literata" font-size="13" font-weight="600" fill="#ec543f" text-anchor="end">★ 7</text>
+<line x1="20" y1="528" x2="370" y2="528" stroke="#b9c7d4" stroke-width="1"/>
+<g transform="rotate(0 37.0 561.0)">
+<rect x="24" y="541" width="34" height="50" rx="3" fill="#000000" opacity="0.18"/>
+<rect x="20" y="536" width="34" height="50" rx="3" fill="#23525b" stroke="#c9a15f" stroke-width="2"/>
+<rect x="20" y="536" width="4" height="50" rx="2" fill="#000000" opacity="0.25"/>
+<g transform="translate(32.92,545.0) scale(0.3400)"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8L3.5 9.7l5.9-.8z" fill="#c9a15f" stroke="#c9a15f" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/></g>
 </g>
-<text x="70" y="646" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#172d45" text-anchor="start">Kürk Mantolu Madonna</text>
-<text x="70" y="666" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">Sabahattin Ali</text>
-<text x="370" y="656" font-family="Literata" font-size="13" font-weight="600" fill="#ec543f" text-anchor="end">okunuyor · s.112</text>
-<line x1="20" y1="686" x2="370" y2="686" stroke="#b9c7d4" stroke-width="1"/>
-<text x="20" y="708" font-family="Bricolage Grotesque" font-size="12" font-weight="700" fill="#617083" text-anchor="start" letter-spacing="0.8">GÖRÜNÜM</text>
-<rect x="120" y="690" width="78" height="32" rx="4" fill="#ffe16b" stroke="#172d45" stroke-width="1.3"/>
-<text x="159" y="711" font-family="Literata" font-size="13" font-weight="600" fill="#172d45" text-anchor="middle">Açık</text>
-<rect x="204" y="690" width="78" height="32" rx="4" fill="#fffdf7" stroke="#b9c7d4" stroke-width="1.3"/>
-<text x="243" y="711" font-family="Literata" font-size="13" font-weight="600" fill="#172d45" text-anchor="middle">Koyu</text>
-<rect x="288" y="690" width="78" height="32" rx="4" fill="#fffdf7" stroke="#b9c7d4" stroke-width="1.3"/>
-<text x="327" y="711" font-family="Literata" font-size="13" font-weight="600" fill="#172d45" text-anchor="middle">Sistem</text>
+<text x="68" y="556" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#172d45" text-anchor="start">Tutunamayanlar</text>
+<text x="68" y="576" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">Oğuz Atay</text>
+<rect x="318" y="540" width="52" height="18" rx="0" fill="#ffe16b"/>
+<text x="344.0" y="553" font-family="Bricolage Grotesque" font-size="10" font-weight="700" fill="#172d45" text-anchor="middle">KULÜP</text>
+<text x="370" y="580" font-family="Literata" font-size="13" font-weight="600" fill="#ec543f" text-anchor="end">★ 9</text>
+<line x1="20" y1="600" x2="370" y2="600" stroke="#b9c7d4" stroke-width="1"/>
+<g transform="rotate(0 37.0 633.0)">
+<rect x="24" y="613" width="34" height="50" rx="3" fill="#000000" opacity="0.18"/>
+<rect x="20" y="608" width="34" height="50" rx="3" fill="#23525b" stroke="#c9a15f" stroke-width="2"/>
+<rect x="20" y="608" width="4" height="50" rx="2" fill="#000000" opacity="0.25"/>
+<g transform="translate(32.92,617.0) scale(0.3400)"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8L3.5 9.7l5.9-.8z" fill="#c9a15f" stroke="#c9a15f" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/></g>
+</g>
+<text x="68" y="628" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#172d45" text-anchor="start">Beyaz Geceler</text>
+<text x="68" y="648" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">Dostoyevski</text>
+<rect x="318" y="612" width="52" height="18" rx="0" fill="#eef1ec"/>
+<text x="344.0" y="625" font-family="Bricolage Grotesque" font-size="10" font-weight="700" fill="#172d45" text-anchor="middle">KENDİ</text>
+<text x="370" y="652" font-family="Literata" font-size="13" font-weight="600" fill="#ec543f" text-anchor="end">★ 8</text>
+<line x1="20" y1="672" x2="370" y2="672" stroke="#b9c7d4" stroke-width="1"/>
+<g transform="rotate(0 37.0 705.0)">
+<rect x="24" y="685" width="34" height="50" rx="3" fill="#000000" opacity="0.18"/>
+<rect x="20" y="680" width="34" height="50" rx="3" fill="#23525b" stroke="#c9a15f" stroke-width="2"/>
+<rect x="20" y="680" width="4" height="50" rx="2" fill="#000000" opacity="0.25"/>
+<g transform="translate(32.92,689.0) scale(0.3400)"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8L3.5 9.7l5.9-.8z" fill="#c9a15f" stroke="#c9a15f" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/></g>
+</g>
+<text x="68" y="700" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#172d45" text-anchor="start">Saatleri Ayarlama Ens.</text>
+<text x="68" y="720" font-family="Literata" font-size="13" font-weight="400" fill="#617083" text-anchor="start">A. H. Tanpınar</text>
+<rect x="318" y="684" width="52" height="18" rx="0" fill="#ffe16b"/>
+<text x="344.0" y="697" font-family="Bricolage Grotesque" font-size="10" font-weight="700" fill="#172d45" text-anchor="middle">KULÜP</text>
+<text x="370" y="724" font-family="Literata" font-size="13" font-weight="600" fill="#ec543f" text-anchor="end">okunuyor</text>
+<line x1="20" y1="744" x2="370" y2="744" stroke="#b9c7d4" stroke-width="1"/>
 <rect x="0" y="760" width="390" height="84" rx="0" fill="#fffdf7"/>
 <line x1="0" y1="760" x2="390" y2="760" stroke="#172d45" stroke-width="2"/>
 <g transform="translate(37,774) scale(0.9167)"><path d="M3 5.5C5.5 4.5 8.5 4.5 12 6.5c3.5-2 6.5-2 9-1v13c-2.5-1-5.5-1-9 1-3.5-2-6.5-2-9-1z M12 6.5v13" fill="none" stroke="#617083" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></g>
@@ -124,4 +143,4 @@
 <g transform="translate(331,774) scale(0.9167)"><path d="M12 4a4 4 0 1 0 0 8a4 4 0 1 0 0-8z M4.5 20c1-4 4-5.5 7.5-5.5s6.5 1.5 7.5 5.5" fill="none" stroke="#172d45" stroke-width="1.96" stroke-linecap="round" stroke-linejoin="round"/></g>
 <text x="342" y="812" font-family="Bricolage Grotesque" font-size="13" font-weight="700" fill="#172d45" text-anchor="middle">Profil</text>
 <rect x="128" y="830" width="134" height="5" rx="2.5" fill="#172d45"/>
-</svg>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo0YzUxNzg1OC1iMmI0LTRiODItYWU5My03YTUwMDBjMGJmOGUAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaOOO3weDZkiGoktw7afJAjQAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpkZGMyMTgxOS1mZjVkLTQ4MDYtYTE5MC1mYjY0MTRiOGI3OTlscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoy6pITx91Q9qYOOMiOY4Y9QAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg+r8MPZwBHEcAAkMfxRLJAGiDX/R+JvCNmuoHk6dSKbakZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaHP59x894/ruel/0+D9ZvSAAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIDGD8YCA61esEIScG/vDio1Gmx7aLq61dOF858/0i8UQZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GT0DZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjRjNTE3ODU4LWIyYjQtNGI4Mi1hZTkzLTdhNTAwMGMwYmY4ZS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjY5Yzk5NTNkLTYyZjQtNDg5NS04YmY1LWExM2Q3MDFhNGYzMXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCD6vww9nAEcRwACQx/FEskAaINf9H4m8I2a6geTp1IptqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggwbdaakcIXowhmXaMrRR+2oPScYiOhL5W4bY1KXzhWT6iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggkYgMbman0+eJvq5k0EVddrgmcoACi6hUZ/QM0XANA9t0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQHJnCU1bqWZOfaCZznfcGiNdjJ3zeZpcWzbDX27pVjb94ImhxTROdfcPpYAYfmSn0ZJCFv88V9WbALLh6wD4qjU=</c2pa:manifest></metadata></svg>

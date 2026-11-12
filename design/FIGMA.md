@@ -12,7 +12,9 @@ The SVG files in this folder are exports of the same screens for the repository 
 | `02 Mockups & Styles` | 11 light (`Light / …`) and 11 dark (`Dark / …`) hi-fi frames, **Styles board** (color variables + text styles) and **Components** (Button/Primary, Button/Outlined, Eyebrow, Chip On/Off, Bottom nav × 4 variants) |
 | `03 Prototype` | Linked light screens, the review sheet as an overlay and dark Home/Profile for the theme toggle |
 
-Frame numbers match the user flow PDF: `01 Giriş · 02 Grup seçimi · 03 Ana sayfa · 04 Buluşmalar · 05 Buluşma detayı · 05b RSVP verildi · 06 Değerlendirme · 07 Plan · 07b Oy değişti · 08 Kitap öner · 09 Profil`.
+Frame numbers match the user flow PDF: `01 Giriş · 02 Grup seçimi · 03 Ana sayfa · 04 Buluşmalar · 05 Buluşma detayı · 05b RSVP verildi · 06 Değerlendir: kitap · 06b Değerlendir: buluşma · 07 Plan · 07b Oy değişti · 08 Kitap öner · 09 Profil: okuduklarım · 09b Profil: buluşmalarım · 10 Okuduğum kitabı ekle`.
+
+**Version 2 (12 Nov 2026):** the review is now a full screen with two tabs, *Kitap* (06) and *Buluşma* (06b), so the book and the meeting get separate ratings. The profile shows *Okuduklarım* (09) and *Buluşmalarım* (09b), and screen 10 adds a book read outside the club. These five frames are in this folder as SVG (wireframe, light, dark). To bring them into Figma, drag the SVGs onto page `01` (wireframes) or `02` (light/dark); they import as editable vectors and text.
 
 ## Styles
 
@@ -38,6 +40,8 @@ Flow starting point **“Ana akış”** → `01 Giriş`. Interactions sit on tr
 | 07 / 07b · “Kitap öner” | On tap | 08 Kitap öner | Move in from bottom 300 ms |
 | 08 · ✕ / “Plana ekle” | On tap | 07 Plan | Move out to bottom 250 ms |
 | 03 / 09 · sun icon, 09 · “Koyu” | On tap | dark Home / Profile | Dissolve 300 ms (moon icon / “Açık” returns) |
+
+Links planned for the version 2 frames: 05 “Değerlendirmeni ekle” → 06 (push), 06 ↔ 06b by the tabs (smart animate), 06/06b “‹” or “Kaydet” → back, 09 ↔ 09b by the tabs, 09 “Kitap ekle” → 10 (move in from bottom), 10 ✕ or “Okuduklarıma ekle” → 09.
 
 ## Sharing with the instructor
 
