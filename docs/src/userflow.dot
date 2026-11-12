@@ -22,16 +22,21 @@ digraph userflow {
     style="dashed"; color="#b9c7d4"; fontcolor="#617083";
     archive [shape=box, style=filled, fillcolor="#fffdf7", label="04 · Buluşmalar\nsearch + filter"];
     plan    [shape=box, style=filled, fillcolor="#fffdf7", label="07 · Plan\nroadmap + voting"];
-    profile [shape=box, style=filled, fillcolor="#fffdf7", label="09 · Profil\nstats · favorites · theme"];
+    profile [shape=box, style=filled, fillcolor="#fffdf7", label="09 · Profil\nOkuduklarım · Buluşmalarım"];
   }
 
   meeting [shape=box, style=filled, fillcolor="#fffdf7", penwidth=2.4, label="05 · Buluşma detayı"];
   dFuture [shape=diamond, style=filled, fillcolor="#ffe16b", label="Meeting today\nor upcoming?"];
   rsvp    [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="Toggle “Geliyorum”\nset / delete rsvps/{uid}"];
-  review  [shape=box, style=filled, fillcolor="#fffdf7", label="06 · Değerlendirme\n(bottom sheet)"];
-  dStatus [shape=diamond, style=filled, fillcolor="#ffe16b", label="Read or\npartial?"];
+  review  [shape=box, style=filled, fillcolor="#fffdf7", label="06 · Değerlendir\ntabs: Kitap | Buluşma"];
+  dTab    [shape=diamond, style=filled, fillcolor="#ffe16b", label="Which\ntab?"];
+  dStatus [shape=diamond, style=filled, fillcolor="#ffe16b", label="Finished,\nno rating?"];
+  dMeet   [shape=diamond, style=filled, fillcolor="#ffe16b", label="Meeting\nrated?"];
   needRate[shape=box, style="rounded,filled", fillcolor="#fde3df", label="Rating 1–10\nrequired"];
+  saveBook[shape=box, style="rounded,filled", fillcolor="#eef1ec", label="save book review\n(shelf, source = club)"];
   save    [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="write reviews/{uid}\n(draft kept in SQLite if offline)"];
+  personal[shape=box, style=filled, fillcolor="#fffdf7", label="10 · Okuduğum kitabı ekle\nOpen Library or manual"];
+  savePers[shape=box, style="rounded,filled", fillcolor="#eef1ec", label="save book review\n(shelf, source = personal)"];
   share   [shape=box, style="rounded,filled", fillcolor="#eef1ec", label="Share link · ICS · Maps\n(OS share sheet)"];
 
   dVote   [shape=diamond, style=filled, fillcolor="#ffe16b", label="Already voted\nfor this book?"];
@@ -64,10 +69,15 @@ digraph userflow {
   dFuture -> rsvp [label="yes"];
   dFuture -> review [label="no / any time"];
   meeting -> share [style=dotted];
-  review -> dStatus;
-  dStatus -> needRate [label="yes, no rating"]; needRate -> review;
-  dStatus -> save [label="rated / unread"];
-  save -> meeting [label="pop sheet"];
+  review -> dTab;
+  dTab -> dStatus [label="Kitap"];
+  dTab -> dMeet [label="Buluşma"];
+  dStatus -> needRate [label="yes"]; needRate -> review;
+  dMeet -> needRate [label="no"];
+  dStatus -> saveBook [label="no"];
+  dMeet -> save [label="yes"];
+  saveBook -> meeting [label="back"];
+  save -> meeting [label="back"];
   rsvp -> meeting;
 
   plan -> dVote [label="tap vote"];
@@ -81,5 +91,8 @@ digraph userflow {
   dAdmin -> toMeeting [label="yes", style=dashed];
   toMeeting -> meeting [style=dashed];
 
+  profile -> personal [label="Kitap ekle"];
+  personal -> savePers -> profile;
+  profile -> meeting [label="Buluşmalarım row", style=dotted];
   profile -> logout; logout -> login [style=dotted];
 }
